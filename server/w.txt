@@ -1,0 +1,18 @@
+step1
+product and category listing
+product detail
+cart management
+order processing
+
+
+schema :-
+user
+product
+cart
+order
+
+
+endpoints:-
+show list list of all category
+show list of all product
+
