@@ -1,6 +1,9 @@
 const express = require('express');
 const ProductRoute = express.Router();
 const { getProductsByCategory, getProductDetails, addProduct, getAllProducts, deleteProduct } = require('../controller/product');
+const {authentication} = require('../middleware/authentication');
+
+app.use(authentication) 
 
 ProductRoute.get('/ByCategory/:categoryId', getProductsByCategory);
 

@@ -21,8 +21,8 @@ app.get('/', async (req, res) => {
 });
 
 app.use('/user', UserRouter);
-app.use('/product',ProductRoute);
-app.use('/order',OrderRoute);
+app.use('/product', ProductRoute);
+app.use('/order', OrderRoute);
 app.use('/category', CategoryRoute);
 
 app.listen(Port, async () => {
