@@ -48,19 +48,6 @@ const productSchema = mongoose.Schema({
             }
         }
     ],
-    reviews: [
-        {
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User' // Reference to the User model
-            },
-            text: String,
-            createdAt: {
-                type: Date,
-                default: Date.now
-            }
-        }
-    ],
     createdAt: {
         type: Date,
         default: Date.now
