@@ -1,7 +1,7 @@
 const { connection } = require('./config/db');
 const express = require('express');
 
-const { UserRouter } = require('./routes/userRoute');
+const { UserRoute } = require('./routes/userRoute');
 const { ProductRoute } = require('./routes/productRoute');
 const { CategoryRoute } = require('./routes/categoryRoute');
 const { OrderRoute } = require('./routes/orderRoute');
@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
     });
 });
 
-app.use('/user', UserRouter);
+app.use('/user', UserRoute);
 app.use('/product', ProductRoute);
 app.use('/order', OrderRoute);
 app.use('/category', CategoryRoute);
@@ -31,6 +31,7 @@ app.listen(Port, async () => {
         console.log('Connected to DB');
     } catch (error) {
         console.log('Error conncting with DB', error);
+        console.log(error);
     }
     console.log(`Server is running at http://localhost:${Port}`);
 });

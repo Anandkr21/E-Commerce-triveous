@@ -1,18 +1,16 @@
 const express = require('express');
 const ProductRoute = express.Router();
 const { getProductsByCategory, getProductDetails, addProduct, getAllProducts, deleteProduct } = require('../controller/product');
-const {authentication} = require('../middleware/authentication');
+const { authentication } = require('../middleware/authentication');
 
-app.use(authentication) 
+ProductRoute.get('/ByCategory/:categoryId', authentication, getProductsByCategory);
 
-ProductRoute.get('/ByCategory/:categoryId', getProductsByCategory);
+ProductRoute.get('/:productId', authentication, getProductDetails);
 
-ProductRoute.get('/:productId', getProductDetails);
+ProductRoute.get('/', authentication, getAllProducts);
 
-ProductRoute.get('/', getAllProducts);
+ProductRoute.post('/create', authentication, addProduct);
 
-ProductRoute.post('/create', addProduct);
-
-ProductRoute.delete('/:productId', deleteProduct);
+ProductRoute.delete('/:productId', authentication, deleteProduct);
 
 module.exports = { ProductRoute };

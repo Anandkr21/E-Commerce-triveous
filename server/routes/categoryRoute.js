@@ -1,14 +1,12 @@
 const express = require('express');
 const CategoryRoute = express.Router();
 const { getCategories, addCategory, deleteCategory } = require('../controller/category');
-const {authentication} = require('../middleware/authentication');
+const { authentication } = require('../middleware/authentication');
 
-app.use(authentication);
+CategoryRoute.get('/getall', authentication, getCategories);
 
-CategoryRoute.get('/getall', getCategories);
+CategoryRoute.post('/create', authentication, addCategory);
 
-CategoryRoute.post('/create', addCategory);
-
-CategoryRoute.delete('/:categoryId', deleteCategory);
+CategoryRoute.delete('/:categoryId', authentication, deleteCategory);
 
 module.exports = { CategoryRoute };

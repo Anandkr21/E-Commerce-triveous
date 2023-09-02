@@ -1,14 +1,12 @@
 const express = require('express');
 const OrderRoute = express.Router();
 const { placeOrder, getOrderHistory, getOrderDetails } = require('../controller/order');
-const {authentication} = require('../middleware/authentication');
+const { authentication } = require('../middleware/authentication');
 
-app.use(authentication);
+OrderRoute.post('/place-order', authentication, placeOrder);
 
-OrderRoute.post('/place-order', placeOrder);
+OrderRoute.get('/order-history', authentication, getOrderHistory);
 
-OrderRoute.get('/order-history', getOrderHistory);
-
-OrderRoute.get('/:orderId', getOrderDetails);
+OrderRoute.get('/:orderId', authentication, getOrderDetails);
 
 module.exports = { OrderRoute };
