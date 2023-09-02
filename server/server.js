@@ -16,7 +16,7 @@ const Port = process.env.PORT || 8080
 app.get('/', async (req, res) => {
     res.status(200).send({
         status: true,
-        msg: 'Welcome to Triveous E-Commerece Website !'
+        msg: 'Welcome To Base API !'
     });
 });
 
