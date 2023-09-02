@@ -11,7 +11,7 @@ ProductRoute.get('/:productId', getProductDetails);
 
 ProductRoute.get('/', getAllProducts);
 
-ProductRoute.post('/', addProduct);
+ProductRoute.post('/create', addProduct);
 
 ProductRoute.delete('/:productId', deleteProduct);
 

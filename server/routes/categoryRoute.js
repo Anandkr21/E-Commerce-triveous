@@ -5,9 +5,9 @@ const {authentication} = require('../middleware/authentication');
 
 app.use(authentication);
 
-CategoryRoute.get('/', getCategories);
+CategoryRoute.get('/getall', getCategories);
 
-CategoryRoute.post('/', addCategory);
+CategoryRoute.post('/create', addCategory);
 
 CategoryRoute.delete('/:categoryId', deleteCategory);
 
